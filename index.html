@@ -24,46 +24,130 @@
     --gutter: clamp(18px, 5vw, 72px);
   }
 
-  /* Bloquear el scroll de la página por completo */
-  html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden; /* Esto elimina las barras de desplazamiento */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  body {
     background-color: var(--paper);
     color: var(--ink);
     font-family: var(--display);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
   }
 
-  /* Contenedor principal ajustado al tamaño de la pantalla */
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  header {
+    background-color: var(--night);
+    color: var(--night-ink);
+    padding: calc(var(--gutter) * 1.5) var(--gutter);
+    text-align: center;
+    border-bottom: 1px solid var(--night-line);
   }
 
-  .main-container {
-    width: 100%;
+  header h1 {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.5rem;
+  }
+
+  header p {
+    font-family: var(--mono);
+    color: var(--night-mute);
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  main {
     max-width: 1200px;
-    height: 100%;
-    max-height: 800px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    margin: 0 auto;
     padding: var(--gutter);
-    box-sizing: border-box;
+  }
+
+  .scene-list {
+    display: grid;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .scene-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    padding: 2rem;
+    border-radius: 8px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .scene-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold);
+  }
+
+  .scene-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+    color: var(--ink);
+  }
+
+  .scene-card p {
+    color: var(--mute);
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-gold {
+    display: inline-block;
+    background-color: var(--gold);
+    color: var(--night);
+    padding: 0.75rem 1.5rem;
+    font-family: var(--mono);
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: opacity 0.2s ease;
+  }
+
+  .btn-gold:hover {
+    opacity: 0.9;
+  }
+
+  footer {
+    background-color: var(--night);
+    color: var(--night-ink);
+    text-align: center;
+    padding: var(--gutter);
+    margin-top: 4rem;
+    font-family: var(--mono);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--night-line);
   }
 </style>
 </head>
 <body>
 
-  <div class="main-container">
-    <!-- Aquí va el contenido que quieres que permanezca fijo en pantalla -->
+  <header>
     <h1>School Opps</h1>
-    <p>Contenido principal ajustado sin scroll.</p>
-  </div>
+    <p>Portafolio de Proyecto / Mecánicas y Escenas de Combate</p>
+  </header>
+
+  <main>
+    <section class="scene-list">
+      <div class="scene-card">
+        <h2>Escena 1: El Patio Central (PvP)</h2>
+        <p>Sistema de combate dinámico basado en animaciones fluidas, físicas de ragdoll y gestión de energía optimizada para enfrentamientos cuerpo a cuerpo.</p>
+        <a href="#contacto" class="btn-gold">Ver Detalles</a>
+      </div>
+
+      <div class="scene-card">
+        <h2>Escena 2: Los Pasillos (Zona Social)</h2>
+        <p>Interfaz de usuario inmersiva con estética de delincuentes escolares japoneses (gakuran), menús interactivos y tienda de habilidades personalizadas.</p>
+        <a href="#contacto" class="btn-gold">Ver Detalles</a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contacto">
+    <p>School Opps &mdash; Desarrollado para Roblox Studio</p>
+  </footer>
 
 </body>
 </html>
